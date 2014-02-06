@@ -1,0 +1,30 @@
+<section data-ng-controller="EntriesController" data-ng-init="find()">
+	<h1> To Do List </h1>
+	<table class="table center-table table-bordered">
+			<tr class="entries" data-ng-repeat="entry in entries">
+				<td>
+					<i ng-show="entry.done" class="glyphicon glyphicon-star-empty">					
+				</td>
+				<td>
+				<div style="font-size: large; color:#66CCCC; font-weight:bold;">{{entry.content}}</div>
+				</td>
+				<td>
+				<span>{{entry.created | date:'medium'}}</span> 
+				</td>
+				<td>
+				<a class="btn"  data-ng-click="done(entry)" >done?</a>
+				</td>
+				<td>
+				<a class="btn" data-ng-href="#!/entries/{{entry._id}}/edit">edit </a>
+				</td>
+				<td>
+				<a class="btn" data-ng-click="remove(entry);">delete </a>
+				</td>
+
+				
+			</td>
+		
+ 
+	</table>
+	<h1 data-ng-hide="!entries || entries.length">No to-do-entries yet. <br> Why don't you <a href="/#!/entries/create">Create One</a>?</h1>
+</section>

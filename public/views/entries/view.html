@@ -1,0 +1,13 @@
+<section data-ng-controller="EntriesController" data-ng-init="findOne()">
+    <span>{{entry.created | date:'medium'}}</span>/
+    <span>{{entry.user.name}}</span>
+    <div data-ng-show="global.user._id == entry.user._id">
+        <a class="btn" href="/#!/articles/{{entry._id}}/edit">
+        	<i class="glyphicon glyphicon-edit"></i>
+        </a> 
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{entry.content}}</div>
+</section>
